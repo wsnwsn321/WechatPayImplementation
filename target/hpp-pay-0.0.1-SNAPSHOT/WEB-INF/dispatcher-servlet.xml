@@ -56,7 +56,8 @@
           destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
         <property name="checkoutTimeout" value="30000" />
-        <property name="jdbcUrl" value="jdbc:mysql://192.168.232.34:3306/wapmatch_game?useUnicode=true&amp;characterEncoding=UTF8" />
+        <property name="jdbcUrl" value="jdbc:mysql://wap.hpp.cn:3306/wapmatch_game?useUnicode=true&amp;characterEncoding=UTF8" />
+
         <property name="user" value="root" />
         <property name="password" value="pass" />
         <property name="minPoolSize" value="5" />

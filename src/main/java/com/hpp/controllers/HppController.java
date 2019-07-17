@@ -44,6 +44,7 @@ public class HppController {
     @RequestMapping("/profile")
     public Profile profile(
             @RequestParam(
+
                     value="id",
                     defaultValue="1"
             ) Integer id)

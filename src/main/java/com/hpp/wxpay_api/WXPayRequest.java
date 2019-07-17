@@ -25,6 +25,8 @@ import java.security.KeyStore;
 import java.security.SecureRandom;
 import com.hpp.wxpay_api.WXPayConstants.SignType;
 
+import static com.hpp.wxpay_api.WXPayConstants.USER_AGENT;
+
 public class WXPayRequest {
     private WXPayConfig config;
     public WXPayRequest(WXPayConfig config) throws Exception{
