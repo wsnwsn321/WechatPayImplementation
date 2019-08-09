@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @DynamicInsert
 @Entity
-@Table(name = "wechatpay_orderinfo")
+@Table(name = "wechatpay_orderinfos")
 public class WechatpayInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

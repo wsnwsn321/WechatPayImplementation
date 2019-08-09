@@ -52,6 +52,9 @@ public class WxpayController {
             String opId = w.getOpenid(Integer.parseInt(request.getParameter("id")));
             String trade_no = UUID.randomUUID().toString().replaceAll("-", "");
             String ip = getLocalIp(request);
+            float fee =Float.parseFloat(request.getParameter("amount"));
+            fee *=100;
+            int int_float = (int)fee;
             paraMap.put("appid", appid);
             paraMap.put("body",body);
             paraMap.put("mch_id", mch_id);
@@ -60,7 +63,8 @@ public class WxpayController {
             paraMap.put("openid", opId);
             paraMap.put("out_trade_no", trade_no);//订单号
             paraMap.put("spbill_create_ip", ip);
-            paraMap.put("total_fee", "1");
+            paraMap.put("total_fee",int_float+"");
+            //paraMap.put("total_fee","1");
             paraMap.put("trade_type", "JSAPI");
             paraMap.put("notify_url", "http://wp.happypingpang.com:8080/yap/after-pay");// 此路径是微信服务器调用支付结果通知路径随意写
             String sign = WXPayUtil.generateSignature(paraMap, paternerKey);
@@ -106,7 +110,7 @@ public class WxpayController {
             wi.setPay_sign(paySign);
             wi.setUser_id(Integer.parseInt(request.getParameter("id")));
             wi.setContest_id(Integer.parseInt(request.getParameter("cId")));
-            wi.setFee(Float.parseFloat(request.getParameter("amount"))*100.0f);
+            wi.setFee(Float.parseFloat(request.getParameter("amount")));
             wp.savePay(wi);
             return payMap;
 
